@@ -4,7 +4,7 @@
 
 - axios
 - concurrently
-- node-sass
+- sass
 - react-youtube
 - react-router-dom
 - semantic-ui-react
