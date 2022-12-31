@@ -1,0 +1,45 @@
+{
+  "name": "norigin-media",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.2.2",
+    "nm-mock-api": "git+https://github.com/NoriginMedia/mock-api.git#cloudberry",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.1",
+    "react-scripts": "5.0.1",
+    "react-youtube": "^10.1.0",
+    "semantic-ui-react": "^2.1.4"
+  },
+  "scripts": {
+    "start:ui": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start:mock-api": "./node_modules/.bin/osprey-mock-service -f ./node_modules/nm-mock-api/demo.raml -p 1333 --cors",
+    "update:epg": "node ./node_modules/nm-mock-api/scripts/updateEpg.js",
+    "update:programs": "node ./node_modules/nm-mock-api/scripts/updatePrograms.js",
+    "server": "node ./node_modules/nm-mock-api/scripts/updateEpg.js && npm run start:mock-api",
+    "start": "concurrently \"yarn run server\" \"yarn run start:ui\""
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "sass": "^1.57.1"
+  }
+}
